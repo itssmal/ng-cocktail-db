@@ -1,0 +1,12 @@
+<div class="container mt-5">
+  <app-loader *ngIf="!menu"></app-loader>
+  <form class="text-left" [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="menu">
+    <div class="form-check" *ngFor="let control of drinksArr.controls; let i = index">
+      <input class="checkbox" type="checkbox" [formControl]="control" id="{{i}}">
+      <label class="checkbox-label" for="{{i}}">
+        {{menu.drinks[i].strCategory}}
+      </label>
+    </div>
+    <button type="submit" class="form-submit ml-4 mt-3" [disabled]="disabled" [style.cursor]="disabled ? 'progress' : 'pointer'">APPLY</button>
+  </form>
+</div>

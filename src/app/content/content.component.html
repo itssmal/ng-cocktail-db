@@ -1,0 +1,17 @@
+<div class="container mt-3">
+  <div class="row" *ngFor="let category of content; let a = index">
+    <h3 class="cat-name mt-5">{{category.catName}}</h3>
+    <hr>
+    <div class="col-md-2 text-center" *ngFor="let drink of category.drinks; let i = index">
+      <div class="card border-0">
+        <img [src]="drink.strDrinkThumb" alt="" class="drink-img m-auto" style="width: 150px; height: 150px">
+        <h4 class="drink-name mb-5 mt-4">{{drink.strDrink}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="content.length !== selectedCategories.length">
+  <app-loader></app-loader>
+</div>
+
